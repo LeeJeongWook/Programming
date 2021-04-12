@@ -1,0 +1,24 @@
+#define _CRT_SECURE_NO_DEPRECATE
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+	freopen("input.txt", "r", stdin);
+
+	int num, tmp, ans = 0;
+
+	cin >> num;
+
+	for (int i = 0; i < 5; i++) {
+		cin >> tmp;
+		if (tmp == num) {
+			ans++;
+		}
+	}
+
+	cout << ans;
+
+	return 0;
+}

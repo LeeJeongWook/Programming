@@ -1,0 +1,51 @@
+#define _CRT_SECURE_NO_DEPRECATE
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+int main() {
+	string input[2];
+	int hr[3], min[3], sec[3];
+	int startTime, endTime, tmp;
+
+	freopen("input.txt", "r", stdin);
+
+	cin >> input[0] >> input[1];
+
+	for (int i = 0; i < 2; i++) {
+		hr[i] = atoi(&input[i][0]);
+		min[i] = atoi(&input[i][3]);
+		sec[i] = atoi(&input[i][6]);
+	}
+	startTime = (hr[0] * 3600) + (min[0] * 60) + sec[0];
+	endTime = (hr[1] * 3600) + (min[1] * 60) + sec[1];
+
+	if (startTime < endTime) {
+		tmp = endTime - startTime;
+	}
+	else {
+		tmp = (86400 - startTime) + endTime;
+	}
+
+	hr[2] = tmp / 3600;
+	tmp %= 3600;
+	min[2] = tmp / 60;
+	tmp %= 60;
+	sec[2] = tmp;
+
+	cout.width(2);
+	cout.fill('0');
+	cout << hr[2];
+	cout << ":";
+	cout.width(2);
+	cout.fill('0');
+	cout << min[2];
+	cout << ":";
+	cout.width(2);
+	cout.fill('0');
+	cout << sec[2];
+
+	return 0;
+}

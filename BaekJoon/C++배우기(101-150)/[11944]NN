@@ -1,0 +1,41 @@
+#define _CRT_SECURE_NO_DEPRECATE
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+	freopen("input.txt", "r", stdin);
+
+	string N;
+	int M;
+
+	cin >> N >> M;
+
+	int len = N.length();
+	int num = stoi(N);
+
+	string ans;
+	if (len * num >= M) {
+		int cnt = 0;
+		while (1) {
+			if (cnt + len > M)
+				break;
+			ans += N;
+			cnt += len;
+		}
+		for (int i = 0; i < M - cnt; i++) {
+			ans += N[i];
+		}
+	}
+	else {
+		for (int i = 0; i < num; i++)
+			ans += N;
+	}
+	cout << ans;
+
+	return 0;
+}
