@@ -8,7 +8,7 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
-	
+
 	freopen("input.txt", "r", stdin);
 
 	int A, B, cnt = 0, ans = 0;
@@ -21,16 +21,12 @@ int main() {
 			cnt++;
 			if ((A <= cnt) && (cnt <= B)) {
 				ans += i;
-				cout << "i : " << i << endl;
-				if (cnt == (B - A + 1)) {
-					cout << ans << endl;
+				if (cnt == B) {
+					cout << ans;
 					return 0;
 				}
 			}
 		}
-	}
-	for (int x : v) {
-		cout << x << " ";
 	}
 
 	return 0;
