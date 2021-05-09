@@ -21,20 +21,21 @@ int main() {
 	for (int i = 1; i <= N; i++) {
 		v.push_back(i);
 	}
-	//cout << v[(2 - 1) - 0] << endl;
+
 	for (int swap = 0; swap < M; swap++) {
 		cin >> i >> j;
-		for (int x = i - 1; x < j - 1; x++) {
-			tmp = v[x];
-			v[x] = v[(j - 1) - x];
+		int size = j - i;
+		for (int x = 0; x < (size + 1) / 2; x++) {
+			tmp = v[i - 1];
+			v[i - 1] = v[(j - 1) - x];
 			v[(j - 1) - x] = tmp;
+			i++;
 		}
-		for (int x : v) {
-			cout << x << " ";
-		}
-		cout << '\n';
 	}
 
+	for (int x : v) {
+		cout << x << " ";
+	}
 
 	return 0;
 }
