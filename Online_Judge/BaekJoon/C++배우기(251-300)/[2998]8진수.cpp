@@ -23,14 +23,21 @@ int main() {
 	}
 	else if (idx == 2) {
 		tmp = str.substr(0, idx);
-		cout << ((int)tmp[0] * 2) + (int)tmp[1];
-	}
-	
-	for (int i = idx; i <= str.size() - 3; i += 3) {
-		tmp = str.substr(i, 3);
-		cout << ((tmp[0] - '0') * 4) +((tmp[1] - '0') * 2) + (tmp[2] - '0');
+		cout << ((tmp[0] - '0') * 2) + (tmp[1] - '0');
 	}
 
+	if (str.size() > 2) {
+		for (int i = idx; i <= str.size() - 3; i += 3) {
+			tmp = str.substr(i, 3);
+			ans = ((tmp[0] - '0') * 4) + ((tmp[1] - '0') * 2) + (tmp[2] - '0');
+			if (ans == 0) {
+				cout << 0;
+			}
+			else {
+				cout << ans;
+			}
+		}
+	}
 
 	return 0;
 }
