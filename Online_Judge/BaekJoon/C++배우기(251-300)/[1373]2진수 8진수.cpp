@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_DEPRECATE
 #include <iostream>
+#include <vector>
 #include <string>
 
 using namespace std;
@@ -11,15 +12,22 @@ int main() {
 
 	freopen("input.txt", "r", stdin);
 
-	string str;
-	int idx = 0;
-
+    string str;
 	cin >> str;
 
-	for (int i = str.size() - 1; i >= 0; i--) {
+	int sz = str.size();
 
-		cout << (int)str[i] - '0'<< " ";
+	if (sz % 3 == 1) {
+		cout << str[0];
 	}
+	else if (sz % 3 == 2) {
+		cout << (str[0]-'0')*2 +(str[1]-'0');
+	}
+
+	for (int i = sz % 3; i < sz; i += 3) {
+		cout << (str[i] - '0') * 4 + (str[i + 1] - '0') * 2 + (str[i+2] - '0');
+	}
+	cout << '\n';
 
 	return 0;
 }
