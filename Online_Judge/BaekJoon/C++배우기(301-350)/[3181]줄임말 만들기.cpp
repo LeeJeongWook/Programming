@@ -14,7 +14,7 @@ int main() {
 
 	freopen("input.txt", "r", stdin);
 
-	bool idxFlag = true, vocaFlag = false;
+	bool idxFlag = true;
 	char tmp;
 	string str;
 	vector<char> v;
@@ -27,18 +27,13 @@ int main() {
 			idxFlag = false;
 		}
 
-
 		if (str[i] == ' ') {
-			if (vocaFlag == false)
-				v.push_back(tmp);
+			v.push_back(tmp);
 			idxFlag = true;
-			vocaFlag = false;
 		}
 	}
 	v.push_back(tmp);
 
-	cout << endl;
-	cout << idxFlag << endl;
 	for (char x : v) {
 		cout << x << ' ';
 	}
