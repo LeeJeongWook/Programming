@@ -14,7 +14,7 @@ int main() {
 
 	freopen("input.txt", "r", stdin);
 
-	bool flag = true;
+	bool idxFlag = true, vocaFlag = false;
 	char tmp;
 	string str;
 	vector<char> v;
@@ -22,19 +22,23 @@ int main() {
 	getline(cin, str);
 
 	for (int i = 0; i < str.size(); i++) {
-		if (flag) {
+		if (idxFlag) {
 			tmp = str[i];
-			flag = false;
+			idxFlag = false;
 		}
-		
+
+
 		if (str[i] == ' ') {
-			v.push_back(tmp);
-			flag = true;
+			if (vocaFlag == false)
+				v.push_back(tmp);
+			idxFlag = true;
+			vocaFlag = false;
 		}
 	}
-	
+	v.push_back(tmp);
+
 	cout << endl;
-	cout << flag << endl;
+	cout << idxFlag << endl;
 	for (char x : v) {
 		cout << x << ' ';
 	}
