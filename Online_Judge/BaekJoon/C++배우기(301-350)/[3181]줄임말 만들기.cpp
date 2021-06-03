@@ -14,28 +14,26 @@ int main() {
 
 	freopen("input.txt", "r", stdin);
 
-	bool idxFlag = true;
-	char tmp;
+	bool flag = false;
 	string str;
-	vector<char> v;
 
-	getline(cin, str);
+	cin >> str;
+	str[0] = toupper(str[0]);
+	cout << str[0];
 
-	for (int i = 0; i < str.size(); i++) {
-		if (idxFlag) {
-			tmp = str[i];
-			idxFlag = false;
+	while (cin >> str) {
+		flag = false;
+		for (int i = 0; i < 10; i++) {
+			if (str == voca[i]) {
+				flag = true;
+			}
 		}
-
-		if (str[i] == ' ') {
-			v.push_back(tmp);
-			idxFlag = true;
+		if (flag)
+			continue;
+		else {
+			str[0] = toupper(str[0]);
+			cout << str[0];
 		}
-	}
-	v.push_back(tmp);
-
-	for (char x : v) {
-		cout << x << ' ';
 	}
 
 	return 0;
