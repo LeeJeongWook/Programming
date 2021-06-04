@@ -28,17 +28,15 @@ int main() {
 		str2.push_back(tmp);
 	}
 
+	ans = "Eyfa";
+
 	for (int i = 0; i < N; i++) {
-		idx = 0;
-		
 		for (int j = 0; j < M; j++) {
 			idx = j * 2;
-			if ((str1[i][j] != str2[i][idx]) || (str1[i][j] != str2[i][idx+1])) {
+			if ((str1[i][j] != str2[i][idx]) || (str1[i][j] != str2[i][idx + 1])) {
 				ans = "Not Eyfa";
 				break;
 			}
-			else
-				ans = "Eyfa";
 		}
 	}
 	cout << ans;
