@@ -1,29 +1,41 @@
+#define _CRT_SECURE_NO_DEPRECATE
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
-int main(){
-    int T, a, b, c, max;
-    string ans;
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 
-    for(int test = 1; test <= T; test++){
-        max = 0;
-        cin >> a >> b >> c;
+	freopen("input.txt", "r", stdin);
 
-        a > max ? max = a : ;
-        if(){
+	int T, num, ab, bc;
+	string ans;
 
-        }
+	cin >> T;
+	for (int test = 1; test <= T; test++) {
+		vector<int> v;
 
-        else if((a == b) && (b == c))
-            ans = "equilateral";
-        else if((a == b) || (b == c))
-            ans = "isosceles";
-        else if((a != b) && (b != c))
-            ans = "scalene";
+		for (int i = 0; i < 3; i++) {
+			cin >> num;
+			v.push_back(num);
+		}
 
-        cout << "Case #" << test <<": " << ans << '\n';
-    }
+		sort(v.begin(), v.end());
 
-    return 0;
+		if (v[2] >= (v[0] + v[1]))
+			ans = "invalid!";
+		else if ((v[0] == v[1]) && (v[1] == v[2]))
+			ans = "equilateral";
+		else if ((v[0] == v[1]) || (v[1] == v[2]))
+			ans = "isosceles";
+		else if ((v[0] != v[1]) && (v[1] != v[2]))
+			ans = "scalene";
+
+		cout << "Case #" << test << ": " << ans << '\n';
+	}
+	return 0;
 }
