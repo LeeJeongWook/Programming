@@ -12,6 +12,7 @@ bool check[MAX];
 bool flag = false;
 vector<int> v;
 vector<int> a;
+vector<int> b;
 
 bool Compare(vector<int> a, vector<int> b) {
 	bool result = true;
@@ -27,8 +28,8 @@ bool Compare(vector<int> a, vector<int> b) {
 void Permutation(int n, int r) {
 	if (n == r) {
 		if (flag) {
-			for (int i = 0; i < v.size(); i++)
-				cout << v[i] << " ";
+			for (int i = 0; i < r; i++)
+				b.push_back(v[i]);
 			flag = false;
 			return;
 		}
@@ -65,11 +66,14 @@ int main() {
 		arr[i - 1] = i;
 	}
 
-	for (int i = 0; i < a.size(); i++)
-		cout << a[i] << " ";
-	cout << endl;
-
 	Permutation(0, N);
+
+	if (b.size() < N)
+		cout << -1;
+	else {
+		for (int i = 0; i < b.size(); i++)
+			cout << b[i] << " ";
+	}
 
 	return 0;
 }
