@@ -13,21 +13,19 @@ int main() {
 
 	freopen("input.txt", "r", stdin);
 
-	int N, tmp;
+	int N;
 
 	cin >> N;
-	
 	vector<int> v(N);
 
-	for (int i = 1; i <= N; i++)
-		v[i - 1] = i;
-
-	do {
+	for (int i = 0; i < N; i++) {
+		cin >> v[i];
+	}
+	if (next_permutation(v.begin(), v.end())) {
 		for (int i = 0; i < N; i++)
-			cout << v[i] << " ";
-
-		cout << '\n';
-	}while(prev_permutation(v.begin(), v.end())
+			cout << v[i] << ' ';
+	}
+	else cout << -1;
 
 	return 0;
 }
