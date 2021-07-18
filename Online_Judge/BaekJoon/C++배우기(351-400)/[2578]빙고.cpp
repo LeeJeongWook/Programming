@@ -22,6 +22,7 @@ int main() {
 
 	freopen("input.txt", "r", stdin);
 
+	bool flag;
 	int tmp, cnt = 0, bingo[5][5] = { 0, };
 
 	for (int i = 0; i < 5; i++) {
@@ -42,5 +43,40 @@ int main() {
 				check(bingo);
 		}
 	}
+
+	/*
+
+	for(int i = 0; i < 5; i++){
+		for(int j = 0; j < 5; j++){
+			if(bingo[i][j] != 0){
+				flag = true;
+				break;
+			}
+		}
+	}
+
+	for(int j = 0; j < 5; j++){
+		for(int i = 0; i < 5; i++){
+			if(bingo[i][j] != 0){
+				flag = true;
+				break;
+			}
+		}
+	}
+
+	for(int i = 0; i < 5; i++){
+		if(bingo[i][i] != 0){
+			flag = true;
+			break;
+		}
+	}
+
+	for(int i = 4; i > 0; i--){
+		if(bingo[i][i] != 0){
+			flag = true;
+			break;
+		}
+	}
+*/
 	return 0;
 }
