@@ -17,10 +17,8 @@ int check(int(&arr)[5][5]) {
 				break;
 			}
 		}
-		if (!flag) {
+		if (!flag)
 			cnt++;
-			cout << "가로줄'\n";
-		}
 	}
 
 	for (int i = 0; i < 5; i++) {
@@ -31,30 +29,24 @@ int check(int(&arr)[5][5]) {
 				break;
 			}
 		}
-		if (!flag) {
-			cout << "세로줄'\n";
+		if (!flag)
 			cnt++;
-		}
 	}
 
 	for (int i = 0; i < 5; i++) {
 		if (arr[i][i] != 0) {
 			break;
 		}
-		if (i == 4) {
-			cout << "대각'\n";
+		if (i == 4)
 			cnt++;
-		}
 	}
 
 	for (int i = 0; i < 5; i++) {
 		if (arr[i][4 - i] != 0) {
 			break;
 		}
-		if (i == 4) {
-			cout << "대각'\n";
+		if (i == 4)
 			cnt++;
-		}
 	}
 
 	return cnt;
@@ -88,22 +80,10 @@ int main() {
 
 
 
-		cout << "========================\n";
-		cout << check(bingo) << '\n';
-
 		if (check(bingo) >= 3) {
 			cout << ans;
 			return 0;
 		}
-		for (int i = 0; i < 5; i++) {
-			for (int j = 0; j < 5; j++) {
-				cout.width(3);
-				cout << bingo[i][j] << ' ';
-			}
-			cout << '\n';
-		}
-		cout << "========================\n";
 	}
-
 	return 0;
 }
