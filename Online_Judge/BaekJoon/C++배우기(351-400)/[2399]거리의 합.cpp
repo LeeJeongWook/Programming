@@ -23,16 +23,11 @@ int main(){
     }
 
     for(int i = 0; i < n; i++){
-        for(int k = 0; k < n; k++){
-            cout << dq[k] << " ";
-        }
-        cout << '\n';
         for(int j = 1; j < n; j++){
             ans += abs(dq.front() - dq[j]);
         }
-        tmp = dq.front();
+        dq.push_back(dq.front());
         dq.pop_front();
-        dq.push_back(tmp);
     }
 
     cout << ans;
