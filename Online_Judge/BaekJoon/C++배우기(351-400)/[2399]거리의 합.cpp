@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int main(){
+int main() {
 
     ios::sync_with_stdio(false);
     cin.tie(NULL);
@@ -12,25 +12,24 @@ int main(){
 
     freopen("input.txt", "r", stdin);
 
-    int n, tmp, ans = 0;
-    deque<int> dq;
+    int32_t N;
+    int64_t sum = 0, dist;
 
-    cin >> n;
+    cin >> N;
 
-    for(int i = 0; i < n; i++){
-        cin >> tmp;
-        dq.push_back(tmp);
-    }
+    int32_t data[10001];
 
-    for(int i = 0; i < n; i++){
-        for(int j = 1; j < n; j++){
-            ans += abs(dq.front() - dq[j]);
+    for (int i = 0; i < N; i++) cin >> data[i];
+
+    for (int i = 0; i < N; i++) {
+        for (int j = i + 1; j < N; j++) {
+            dist = data[i] - data[j];
+            if (dist < 0) dist *= -1;
+            sum += dist;
         }
-        dq.push_back(dq.front());
-        dq.pop_front();
     }
 
-    cout << ans;
+    cout << sum * 2;
 
     return 0;
 }
