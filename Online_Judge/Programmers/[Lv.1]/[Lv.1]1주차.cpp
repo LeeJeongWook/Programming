@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+long long solution(int price, int money, int count)
+{
+    long long sum = 0, result = 0;
+
+    for (int i = 1; i <= count; i++) sum += price * i;
+
+    if (money >= sum)
+        result = 0;
+    else
+        result = sum - money;
+
+    return result;
+}
