@@ -1,16 +1,13 @@
-def solution(n):
-    list = []
-    while n > 0:
-        tmp = n % 2
-        list.append(tmp)
-        n //= 2
+import codecs
 
-    ans = 0
-    amount = 1
-    for i in reversed(list):
-        ans += i * amount
-        amount *= 2
-    print(ans, end = '')
+lines = []
+while True:
+     line = input()
+     if line:
+         lines.append(line)
+     else:
+         break
 
-num = int(input())
-solution(num)
+for i in lines:
+    byte_array = bytearray.fromhex(i)
+    print(byte_array.decode())
