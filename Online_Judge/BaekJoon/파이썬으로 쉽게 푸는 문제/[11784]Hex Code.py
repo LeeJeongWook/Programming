@@ -1,8 +1,7 @@
-lines = []
 while True:
-     line = input()
-     if line:
-         lines.append(line)
-     else:
-         break
-print(lines)
+    try:
+        line = input()
+        print("".join([chr(int(line[i : i + 2], 16)) for i in range(0, len(line), 2)]))
+
+    except EOFError:
+        break
