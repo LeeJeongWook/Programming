@@ -1,16 +1,28 @@
-def solution(n):
-    list = []
-    while n > 0:
-        tmp = n % 2
-        list.append(tmp)
-        n //= 2
+a,b = input().split()
+print(a,b)
+idx = len(b) - 1
+print(type(idx))
+print(idx)
 
-    ans = 0
-    amount = 1
-    for i in reversed(list):
-        ans += i * amount
-        amount *= 2
-    print(ans, end = '')
+ans = []
+advance = 0
+tmp = 0
 
-num = int(input())
-solution(num)
+for i in reversed(a):
+    i = int(i)
+    b[idx] = int(b[idx])
+
+    if idx > -1:
+        if advance == 1:
+            tmp = i + b[idx] + 1
+        else:
+            tmp = i + b[idx]
+
+    if tmp > 1:
+        advance = 1
+        tmp -= 2
+    print("tmp:", tmp)
+    ans.insert(0, tmp)
+    idx -= 1
+
+print(ans)
