@@ -1,10 +1,12 @@
-from math import gcd
+a, b, c = map(int, input().split())
 
-def lcm(x, y):
-    return x * y // gcd(a,b)
-
-T = int(input())
-
-for i in range(0,T):
-    a, b = map(int, input().split())
-    print(lcm(a,b))
+if a == b and b == c:
+    print(10000 + a * 1000)
+elif a == b:
+    print(1000 + a * 100)
+elif a == c:
+    print(1000 + a * 100)
+elif b == c:
+    print(1000 + c * 100)
+else:
+    print(max(a, b, c) * 100)
