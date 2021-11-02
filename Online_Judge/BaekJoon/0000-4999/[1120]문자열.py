@@ -1,20 +1,11 @@
 A, B = input().split()
-cnt = 0
-max = 0
+min = 50
 
-if len(A) != len(B):
-    for i in range(len(A)):
-        tmp = 0
-        idx = i
-        for j in range(len(B)):
-            if A[idx] == B[j]:
-                idx += 1
-                tmp += 1
-        if max < tmp:
-            max = tmp
-    cnt = len(A) - max
-else:
-    for i in range(len(A)):
-        if A[i-1] != B[i-1]:
-            cnt += 1
-print(cnt)
+for i in range(len(B) - len(A)+1):
+    count = 0
+    for j in range(len(A)):
+        if A[j] != B[i+j]:
+            count += 1
+    if count < min:
+        min = count
+print(min)
