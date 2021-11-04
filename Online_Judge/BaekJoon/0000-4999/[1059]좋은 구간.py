@@ -1,16 +1,16 @@
 L = int(input())
-nums = [int(x) for x in input().split()]
+nums = sorted(list(map(int, input().split())))
 n = int(input())
+nums = [0] + nums
+start = 0
 
-nums.sort()
-ans = 0
-
-for i in range(L - 1):
-    if nums[i] < n < nums[i+1]:
-        tmp = nums[i+1] - n
-        for j in range(n - (nums[i]) -1):
-            ans += tmp
-        ans += nums[i+1] - n - 1
-        break
-
-print(ans)
+if n in nums:
+    print(0)
+else:
+    for i in nums:
+        if n > i:
+            start = i + 1
+        else:
+            end = i - 1
+            break
+    print(end - start + (end - n) * (n - start))
