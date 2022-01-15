@@ -1,8 +1,12 @@
 N, L, D = map(int, input().split())
-max = N * L
+check = [0] * (N * L + 5 * (N - 1))
 for i in range(N):
-    if L - MAX
-    if 0 < (D - L) < 5:
-        print(D)
+    s = (L + 5) * i
+    for j in range(s, s+L):
+        check[j] = 1
+ans = 0
+while ans < len(check):
+    if not check[ans]:
         break
-    L += (L + 5)
+    ans += D
+print(ans)
