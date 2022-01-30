@@ -1,15 +1,11 @@
-A, B = map(list, input().split())
-min = 50
-count = 0
-# A = sorted(A)
-# B = sorted(B)
-# print(A-B)
+A, B = input().split()
+mincnt = 50
 
-for i in A:
-    if i in B:
-        A.remove(i)
-        B.remove(i)
-        print(A)
-        print(B)
-        count += 1
-print(count)
+for i in range(len(B) - len(A) + 1):
+    cnt = 0
+    for j in range(len(A)):
+        if A[j] != B[i+j]:
+            cnt += 1
+    if mincnt > cnt:
+        mincnt = cnt
+print(mincnt)
