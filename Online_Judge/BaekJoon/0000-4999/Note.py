@@ -1,19 +1,28 @@
+# 백준 1068번
+
 import sys
-from itertools import combinations
+from tkinter.tix import Tree
 
-N = int(sys.stdin.readline())
+f = open("0000-4999\input.txt", "r")
 
-ans = 0
-nums = list()
+N = int(f.readline())
+tree = list(map(int, f.readline().rstrip().split(' ')))
+node_idx = int(f.readline())
 
-for i in range(1, 11):
-    for comb in combinations(range(0,10), i):
-        comb = list(comb)
-        comb.sort(reverse=True)
-        nums.append(int("".join(map(str, comb))))
+print("=======================")
+print(N)
+print(tree)
+print(node_idx)
+print("=======================")
+print(tree[node_idx])
 
-nums.sort()
-try:
-    print(nums[N])
-except:
-    print(-1)
+idx_list = list()
+
+idx = 0
+for i in tree:
+    print("i:",i)
+    if node_idx == i:
+        idx_list.append(idx)
+    idx += 1
+
+print(idx_list)
