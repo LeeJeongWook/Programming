@@ -1,28 +1,20 @@
-# 백준 1068번
-
 import sys
-from tkinter.tix import Tree
 
-f = open("0000-4999\input.txt", "r")
+def dfs(K, arr):
+    arr[K] = -2
+    for i in range(len(arr)):
+        if K == arr[i]:
+            dfs(i, arr)
 
-N = int(f.readline())
-tree = list(map(int, f.readline().rstrip().split(' ')))
-node_idx = int(f.readline())
+N = int(sys.stdin.readline())
+arr = list(map(int, sys.stdin.readline().split()))
+K = int(sys.stdin.readline())
+cnt = 0
 
-print("=======================")
-print(N)
-print(tree)
-print(node_idx)
-print("=======================")
-print(tree[node_idx])
+dfs(K, arr)
 
-idx_list = list()
+for i in range(N):
+    if arr[i] != -2 and i not in arr:
+        cnt += 1
 
-idx = 0
-for i in tree:
-    print("i:",i)
-    if node_idx == i:
-        idx_list.append(idx)
-    idx += 1
-
-print(idx_list)
+print(cnt)
