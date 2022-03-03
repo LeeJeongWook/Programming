@@ -1,3 +1,6 @@
+
+'''
+# 메모리 초과
 import sys
 import math
 from itertools import combinations
@@ -29,3 +32,4 @@ for i in combination:
     if(VerifyTriangle(i)): count += 1
 
 print(count)
+'''
