@@ -1,21 +1,39 @@
-#include <iostream>
+#include <stdio.h>
 
-using namespace std;
+int main() {
+    int N, M;
+    scanf("%d %d", &N, &M);
 
-int main(){
-    int N;
-    scanf("%d", &N);
+    char castle[N][M];
+    int rowGuard = 0, colGuard = 0;
 
-    int count = 0, x, y, r;
-
-    for(int i = 0; i < N; i++){
-        scanf("%d %d %d", &x, &y, &r);
-        if(r > 50){
-           count++;
+    for (int i = 0; i < N; i++) {
+        int hasGuard = 0;
+        for (int j = 0; j < M; j++) {
+            scanf(" %c", &castle[i][j]);
+            if (castle[i][j] == 'X') {
+                hasGuard = 1;
+            }
+        }
+        if (!hasGuard) {
+            rowGuard++;
         }
     }
 
-    printf("%d", count);
+    for (int j = 0; j < M; j++) {
+        int hasGuard = 0;
+        for (int i = 0; i < N; i++) {
+            if (castle[i][j] == 'X') {
+                hasGuard = 1;
+            }
+        }
+        if (!hasGuard) {
+            colGuard++;
+        }
+    }
+
+    int result = rowGuard > colGuard ? rowGuard : colGuard;
+    printf("%d\n", result);
 
     return 0;
 }
